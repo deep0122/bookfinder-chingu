@@ -22,7 +22,6 @@ class Books extends Component{
     this.setState({books: [],error: undefined});
 
     //checking empty 
-    console.log(this.state.search);
     if(this.state.search === ''){
       this.setState({error: "Query cannot be empty"});
     }else{
@@ -43,7 +42,6 @@ class Books extends Component{
         )
     }
   }
-
 
   render() {
     return (

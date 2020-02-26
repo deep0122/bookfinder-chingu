@@ -3,8 +3,9 @@ import React from 'react';
 const Book = (props) => {
   const { volumeInfo } = props.info;
   const { title, authors, publisher, infoLink } = volumeInfo;
-  const thumbnail = volumeInfo.hasOwnProperty('imageLinks') ? volumeInfo.imageLinks.thumbnail : false;
-  
+  const thumbnail = volumeInfo.hasOwnProperty('imageLinks') ? volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/230x150.png?text=No Image";
+  console.log(title);
+  console.log(thumbnail);
   const bookStyle = {
     backgroundColor: "#8ad0d6",
     display: "inline-block",
