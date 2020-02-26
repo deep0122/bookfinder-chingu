@@ -1,6 +1,9 @@
 ### Purpose
 Chingu Solo Pre-Work Project
+
 Build a search engine to search through books from Google Books API
+
+[View Project](https://deep0122.github.io/bookfinder-chingu/)
 
 ### Functions
 Search for Books available through the Google Books API
