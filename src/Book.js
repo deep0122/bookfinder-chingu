@@ -37,14 +37,29 @@ const Book = (props) => {
     overflow: "hidden",
   }
 
+  const iStyle = {
+    marginTop: "10px",
+    color: "#3a3a3a"
+  }
+
+  const infoButtonStyle = {
+    position: "absolute", 
+    bottom: "0", 
+    padding: "3px 3px 0", 
+    border: "2px solid", 
+    borderColor: "#3a3a3a",
+    color: "#3a3a3a",
+    marginBottom: "18px"
+  }
+
   return(
     <div style={bookStyle} className="Book">
       {thumbnail && <img style={imgStyle} alt="" src={thumbnail}></img>}
       <div style={infoStyle} className="info">
-        <h5>{title}</h5>
-        <h6>By: {authors}</h6>
-        <h6>Published By: {publisher}</h6>
-        <a href={infoLink}>More Info</a>
+        <h5 style={{marginBottom: "10px"}}><b>{title}</b></h5>
+        {authors && <h6 style={iStyle}>By: {authors}</h6>}
+        {publisher && <h6 style={iStyle}>Published By: {publisher}</h6>}
+        <a style={infoButtonStyle} href={infoLink}>More Info</a>
       </div>
     </div>
   );
