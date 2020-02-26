@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
   return(
     <header>
-      <h1>Book Finder</h1>
+      <h1 style={{"letterSpacing":"3px"}}>Book Finder</h1>
     </header>
   );
 }
