@@ -8,34 +8,47 @@ class Books extends Component{
     super(props);
     this.state = {
       books: [],
-      search: ''
+      search: '',
+      error: undefined
     }
   }
 
   onsearchChange = (e) => {
-    //handle search validation
     this.setState({search: e.target.value});
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    fetch("https://www.googleapis.com/books/v1/volumes?q=" + this.state.search)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({books: [...result.items]})
-        },
-        (error) => {
-          console.error(error);
-        }
-      )
+    this.setState({books: [],error: undefined});
+
+    //checking empty 
+    console.log(this.state.search);
+    if(this.state.search === ''){
+      this.setState({error: "Query cannot be empty"});
+    }else{
+      fetch("https://www.googleapis.com/books/v1/volumes?q=" + this.state.search)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.hasOwnProperty('items')){
+              this.setState({books: [...result.items]})
+            }else{
+              this.setState({error: "No matching books found!"})
+            }
+          },
+          (error) => {
+            console.error(error);
+            this.setState({error: "Server Error"})
+          }
+        )
+    }
   }
 
 
   render() {
     return (
       <div className="Books">          
-        <SearchBar onsearchChange={this.onsearchChange} onSubmit={this.onSubmit} />
+        <SearchBar error={this.state.error} onsearchChange={this.onsearchChange} onSubmit={this.onSubmit} />
         <BookList books={this.state.books} />
       </div>
     )

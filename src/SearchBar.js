@@ -26,6 +26,7 @@ const SearchBar = (props) => {
         <input style={inputStyle} onChange={props.onsearchChange} type="text"/>
         <button style={buttonStyle}type="submit"><i className="fas fa-arrow-right"></i></button>
       </form>
+      {props.error && <p style={{color:"#ff0000"}}>{props.error}</p>}
     </div>
   );
 }
