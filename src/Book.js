@@ -59,7 +59,7 @@ const Book = (props) => {
         <h5 style={{marginBottom: "10px"}}><b>{title}</b></h5>
         {authors && <h6 style={iStyle}>By: {authors}</h6>}
         {publisher && <h6 style={iStyle}>Published By: {publisher}</h6>}
-        <a style={infoButtonStyle} href={infoLink}>More Info</a>
+        <a style={infoButtonStyle} target="_blank" href={infoLink}>More Info</a>
       </div>
     </div>
   );
